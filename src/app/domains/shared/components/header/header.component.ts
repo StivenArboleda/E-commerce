@@ -11,7 +11,6 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
   hideSideMenu = signal(true);
   private cartService = inject(CartService);
   cart = this.cartService.cart;
