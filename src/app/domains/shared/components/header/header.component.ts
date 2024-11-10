@@ -2,15 +2,20 @@ import { Component, inject, Input, signal, SimpleChange, SimpleChanges } from '@
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
+import { RouterLinkWithHref } from '@angular/router';
+import { Router }  from "@angular/router";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLinkWithHref],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  
+  constructor(public router: Router){}
+
   hideSideMenu = signal(true);
   private cartService = inject(CartService);
   cart = this.cartService.cart;
