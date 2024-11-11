@@ -19,27 +19,27 @@ export class ProductDetailComponent {
   private productService = inject(ProductService);
   private cartService = inject(CartService);
 
-  ngOnInit(){
-    if(this.id){
+  ngOnInit() {
+    if (this.id) {
       this.productService.getOne(this.id)
-      .subscribe({
-        next: (product) => {
-          this.product.set(product);
-          if(product.images.length > 0) {
-            this.cover.set(product.images[0])
+        .subscribe({
+          next: (product) => {
+            this.product.set(product);
+            if (product.images.length > 0) {
+              this.cover.set(product.images[0])
+            }
           }
-        }
-      })
+        })
     }
   }
 
-  changerCover(newImg : string){
+  changerCover(newImg: string) {
     this.cover.set(newImg);
   }
 
   addToCart() {
     const product = this.product();
-    if(product){
+    if (product) {
       this.cartService.addToCart(product);
     }
   }
