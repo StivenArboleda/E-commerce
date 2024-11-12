@@ -6,6 +6,7 @@ import { NotFoundComponent } from './domains/info/pages/not-found/not-found.comp
 import { LayoutComponent } from './domains/shared/components/layout/layout.component';
 import { ProductDetailComponent } from './domains/products/pages/product-detail/product-detail.component';
 import { HomepageComponent } from './domains/info/pages/homepage/homepage.component';
+import { QuestionsComponent } from './domains/info/pages/questions/questions.component';
 
 
 export const routes: Routes = [
@@ -23,13 +24,18 @@ export const routes: Routes = [
                 component: ListComponent
             },
             {
+                path: 'product/:id',
+                component: ProductDetailComponent
+            },
+            {
                 path: 'about',
                 component: AboutComponent
             },
             {
-                path: 'product/:id',
-                component: ProductDetailComponent
-            }
+                path: 'questions',
+                component: QuestionsComponent
+            },
+
         ]
     },
     {
